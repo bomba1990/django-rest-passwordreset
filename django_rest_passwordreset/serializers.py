@@ -48,7 +48,7 @@ class PasswordValidateMixin:
             reset_password_token = _get_object_or_404(models.ResetPasswordToken, key=token)
         except (TypeError, ValueError, ValidationError, Http404,
                 models.ResetPasswordToken.DoesNotExist):
-            raise Http404(_("The OTP password entered is not valid. Please check and try again."))
+            raise Http404(_("The OTP entered is not valid. Please check and try again."))
 
         # check expiry date
         expiry_date = reset_password_token.created_at + timedelta(
